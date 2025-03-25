@@ -1,0 +1,45 @@
+{
+    "name": "AI EMAIL GENERATOR",
+    "description": "AI generates a response for your email",
+    "version": "1.0",
+    "manifest_version": 3,
+    "permissions": [
+        "activeTab",
+        "scripting",
+        "storage"
+    ],
+    "host_permissions": [
+        "http://localhost:8080/*",
+        "*://mail.google.com/*"
+    ],
+    "content_scripts": [
+        {
+            "js": [
+                "content.js"
+            ],
+            "matches": [
+                "*://mail.google.com/*"
+            ],
+            "css": [
+                "content.css"
+            ],
+            "run_at": "document_end"
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "test1.png",
+                "test2.png",
+                "icons/*"
+            ],
+            "matches": [
+                "*://mail.google.com/*"
+            ]
+        }
+    ],
+    "action": {
+        "default_title": "AI Email Writer Assistant",
+        "default_icon": "hello_extensions.png"
+    }
+}
